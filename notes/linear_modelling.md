@@ -110,7 +110,7 @@ This is your feature matrix where you have your columns $x_i$ with individuals $
 
 **y** = X**β** + ε
 
-$$
+```math
 \begin{bmatrix}
 y_1 \\
 y_2 \\
@@ -133,7 +133,7 @@ y_n
 \begin{bmatrix}
 \epsilon_1 \\
 \epsilon_2 \\
-... \\
+... \\\
 \epsilon_n 
 \end{bmatrix} 
-$$
+```
