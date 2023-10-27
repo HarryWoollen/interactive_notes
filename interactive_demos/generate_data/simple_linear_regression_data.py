@@ -1,32 +1,29 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 seed = 123
 
-def generate_simple_linear_data(seed:int = seed,n:int = 100):
+def generate_data(seed:int = seed,n:int = 100,type:int=1):
     np.random.seed(seed)
     x = np.linspace(0,10,n)
     # y = b0 + b1x + e
     b_0 = np.random.normal()*10
     b_1 = np.random.normal()*5
-    e = np.random.normal(loc = 0, scale = 3, size = n)
+    
+    if type == 2: # Heteroskedastic Data
+        e = np.random.normal(loc = 0, scale = 3 + (x**2)/2, size = n)
+    else: #Simple Linear Data
+        e = np.random.normal(loc = 0, scale = 3, size = n)
 
-    y = b_0 + b_1*x + e
+    if type!=3:
+        y = b_0 + b_1*x + e
+    else:
+        b_0 = np.random.normal()*3
+        b_1 = np.random.normal()*2
+        e = np.random.normal(loc = 0, scale = 2, size = n)
+        y = np.exp(b_0 + b_1*x + e)
 
-    #Add random variance to the y values.
     return x.flatten(), y.flatten()
-
-
-def generate_hetroskedastic_data(seed:int = seed,n:int = 100):
-    np.random.seed(seed)
-    x = np.linspace(0,10,n)
-    # y = b0 + b1x + e
-    b_0 = np.random.normal()*10
-    b_1 = np.random.normal()*5
-    e = np.random.normal(loc = 0, scale = 3 + (x**2)/2, size = n)
-
-    y = b_0 + b_1*x + e
-
-    return x.reshape(100,), y.reshape(100,)
 
 def fit_simple_linear_model(X:np.array,Y:np.array) -> np.array:
     """_summary_
@@ -66,7 +63,7 @@ def plot_line_of_best_fit(X:np.array,Y:np.array,y_hat:np.array) -> None:
     plt.show()
 
 
-def plot_residuals(Y:np.array,y_hat:np.array) -> None:
+def plot_residuals(X:np.array,Y:np.array,y_hat:np.array) -> None:
     """_summary_
 
     Args:
