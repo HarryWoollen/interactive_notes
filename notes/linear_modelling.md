@@ -54,7 +54,7 @@ Which is read as independently, indentically distributed.
 * Set equal to 0 (so it is an estimate)
 * Solve
 
-#### 1.3.1.1 Solving for $\beta_0$
+#### 1.3.1.1 Solving for beta_0
 Minimise our error (observation $\hat{y}$ - expectation $y_i$)
 
    $S = \Sigma^n_{i = 1}(y_i - E[y_i|x_i])^2$
@@ -76,7 +76,7 @@ $$\Sigma^n_{i=1}(y_i) - n\hat{\beta_0} - \hat{\beta_1}\Sigma^n_{i=1}x_i = 0$$
 Thus $$\hat{\beta_0} = \bar{y} - \hat{\beta_1}\bar{x}$$
 
 
-#### 1.3.1.2 Solving for $\beta_1$
+#### 1.3.1.2 Solving for beta_1
 
 Solving for $\beta_1$ is a lot more involved, as it requires the covariance of X,Y. 
 You are welcome to derive from first principles as done above, or seek out an alternative proof. But we will skip to the end.
@@ -104,7 +104,7 @@ And there you have your line of best fit.
 
 # 2. General Linear Model
 
-This can be covered more in depth in the future. But as a teaser, the General linear model is just what we have seen but with a $X$ matrix and vectors for $Y, \Beta$.
+This can be covered more in depth in the future. But as a teaser, the General linear model is just what we have seen but with a $X$ matrix and vectors for $Y, \beta$.
 
 This is your feature matrix where you have your columns $x_i$ with individuals $j$
 
